@@ -1,0 +1,89 @@
+{
+  "tests": [
+    {
+      "name": "Lista Básico C++ - Ex01 - Nome simples",
+      "setup": "cd listas/lista-basico-cpp/ex01 && g++ -std=c++17 -Wall -O2 main.cpp -o exercise",
+      "run": "cd listas/lista-basico-cpp/ex01 && echo 'João' | ./exercise",
+      "input": "João",
+      "output": "Olá, João!",
+      "comparison": "exact",
+      "timeout": 1
+    },
+    {
+      "name": "Lista Básico C++ - Ex01 - Nome composto",
+      "setup": "cd listas/lista-basico-cpp/ex01 && g++ -std=c++17 -Wall -O2 main.cpp -o exercise",
+      "run": "cd listas/lista-basico-cpp/ex01 && echo 'Maria Silva' | ./exercise",
+      "input": "Maria Silva",
+      "output": "Olá, Maria Silva!",
+      "comparison": "exact",
+      "timeout": 1
+    },
+    {
+      "name": "Lista Básico C++ - Ex01 - Nome vazio",
+      "setup": "cd listas/lista-basico-cpp/ex01 && g++ -std=c++17 -Wall -O2 main.cpp -o exercise",
+      "run": "cd listas/lista-basico-cpp/ex01 && echo '' | ./exercise",
+      "input": "",
+      "output": "Olá, !",
+      "comparison": "exact",
+      "timeout": 1
+    },
+    {
+      "name": "Lista Básico C++ - Ex02 - Saída esperada",
+      "setup": "cd listas/lista-basico-cpp/ex02 && g++ -std=c++17 -Wall -O2 main.cpp -o exercise",
+      "run": "cd listas/lista-basico-cpp/ex02 && echo '' | ./exercise",
+      "input": "",
+      "output": "Pares: 25\nÍmpares: 25",
+      "comparison": "exact",
+      "timeout": 1
+    },
+    {
+      "name": "Lista Básico C++ - Ex03 - Tamanho 5",
+      "setup": "cd listas/lista-basico-cpp/ex03 && g++ -std=c++17 -Wall -O2 main.cpp -o exercise",
+      "run": "cd listas/lista-basico-cpp/ex03 && echo '5' | ./exercise",
+      "input": "5",
+      "output": "0 10 20 30 40",
+      "comparison": "exact",
+      "timeout": 1
+    },
+    {
+      "name": "Lista Básico C++ - Ex03 - Tamanho 3",
+      "setup": "cd listas/lista-basico-cpp/ex03 && g++ -std=c++17 -Wall -O2 main.cpp -o exercise",
+      "run": "cd listas/lista-basico-cpp/ex03 && echo '3' | ./exercise",
+      "input": "3",
+      "output": "0 10 20",
+      "comparison": "exact",
+      "timeout": 1
+    },
+    {
+      "name": "Lista Básico C++ - Ex03 - Tamanho 1",
+      "setup": "cd listas/lista-basico-cpp/ex03 && g++ -std=c++17 -Wall -O2 main.cpp -o exercise",
+      "run": "cd listas/lista-basico-cpp/ex03 && echo '1' | ./exercise",
+      "input": "1",
+      "output": "0",
+      "comparison": "exact",
+      "timeout": 1
+    },
+    {
+      "name": "Lista Básico C++ - Ex04 - Troca int",
+      "setup": "cd listas/lista-basico-cpp/ex04 && g++ -std=c++17 -Wall -O2 main.cpp -o exercise",
+      "run": "cd listas/lista-basico-cpp/ex04 && echo '5 10' | ./exercise",
+      "input": "5 10",
+      "output": "Antes: 5 10\nDepois: 10 5\nRefs: 1 1",
+      "comparison": "exact",
+      "timeout": 1
+    },
+    {
+      "name": "Lista Básico C++ - Ex04 - Troca double",
+      "setup": "cd listas/lista-basico-cpp/ex04 && g++ -std=c++17 -Wall -O2 main.cpp -o exercise",
+      "run": "cd listas/lista-basico-cpp/ex04 && echo '3.14 2.71' | ./exercise",
+      "input": "3.14 2.71",
+      "output": "Antes: 3.14 2.71\nDepois: 2.71 3.14\nRefs: 1 1",
+      "comparison": "exact",
+      "timeout": 1
+    }
+  ],
+  "metadata": {
+    "generated_by": "template-cpp-autograding-generator",
+    "total_tests": 9
+  }
+}

@@ -1,0 +1,49 @@
+# Binários e objetos
+*.exe
+*.out
+*.o
+*.obj
+*.a
+*.so
+*.dll
+
+# Diretórios de compilação
+bin/
+build/
+Debug/
+Release/
+
+# Arquivos temporários
+temp/
+*.tmp
+*.temp
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dados de teste grandes
+*.pdf
+!pdfs/.gitkeep
+
+# Arquivos gerados (mantidos no repo, mas ignorados em updates)
+# src/  # Descomente se quiser ignorar código gerado
+# .github/classroom/autograding.json  # Descomente se quiser ignorar config

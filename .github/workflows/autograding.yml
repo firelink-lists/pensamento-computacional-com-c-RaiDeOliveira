@@ -1,0 +1,85 @@
+name: Autograding Tests
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup C++
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y g++ make
+    
+    - name: Run Tests
+      run: |
+        make test
+      continue-on-error: true
+    
+    - name: Parse Autograding Results
+      id: autograding
+      run: |
+        # Lê o autograding.json e executa cada teste
+        python3 << 'EOF'
+        import json
+        import subprocess
+        import sys
+        
+        with open('.github/classroom/autograding.json', 'r') as f:
+            config = json.load(f)
+        
+        total_tests = len(config['tests'])
+        passed = 0
+        failed_tests = []
+        
+        print(f"Running {total_tests} tests...\n")
+        print("="*70)
+        
+        for test in config['tests']:
+            name = test['name']
+            setup = test.get('setup', '')
+            run_cmd = test['run']
+            expected = test['output']
+            
+            print(f"\n📝 {name}")
+            
+            # Setup (compilação)
+            if setup:
+                result = subprocess.run(setup, shell=True, capture_output=True, text=True)
+                if result.returncode != 0:
+                    print(f"   ❌ Setup failed: {result.stderr}")
+                    failed_tests.append(name)
+                    continue
+            
+            # Run test
+            result = subprocess.run(run_cmd, shell=True, capture_output=True, text=True, timeout=10)
+            actual = result.stdout.strip()
+            
+            if actual == expected:
+                print(f"   ✅ PASSED")
+                passed += 1
+            else:
+                print(f"   ❌ FAILED")
+                print(f"      Expected: {expected[:100]}")
+                print(f"      Got:      {actual[:100]}")
+                failed_tests.append(name)
+        
+        print("\n" + "="*70)
+        print(f"\nResults: {passed}/{total_tests} tests passed")
+        
+        if passed == total_tests:
+            print("🎉 All tests passed!")
+            sys.exit(0)
+        else:
+            print(f"❌ {total_tests - passed} test(s) failed")
+            for test in failed_tests:
+                print(f"   - {test}")
+            sys.exit(1)
+        EOF
