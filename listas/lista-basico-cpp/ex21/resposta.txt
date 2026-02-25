@@ -1,0 +1,2 @@
+D) Pilha - fila - Pilha
+Pois a pilha segue uma lógica FILO (First In Last Out), de modo que, dentre as opções, ela seria a única a possibilitar a inversão da ordem das bases de DNA na transferência da primeira para a segunda estrutura de dados. Da mesma forma, somente a fila (que segue uma lógica FIFO) seria capaz de manter a mesma ordem das bases na transferência da segunda para a terceira estrutura de dados.
